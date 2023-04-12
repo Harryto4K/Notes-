@@ -1,0 +1,100 @@
+body {
+    background-color: lightyellow;
+}
+
+.title {
+    margin-bottom: 0;
+}
+
+#title-notes {
+    margin-bottom: 0.5rem;
+    font-family: 'Roboto Mono';
+    text-align: center;
+}
+
+#title-descr {
+    font-family: 'Roboto Mono';
+    text-align: center;
+    font-size: 14px;
+}
+
+#notes-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: white; 
+    width: 100%;
+    height: 80vh;
+}
+
+.features {
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.feature-element {
+    display: inline-flex;
+    padding: 0 2rem;
+    background-color: darkgoldenrod;
+    height: 2rem;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+}
+
+.feature-element:hover {
+    opacity: 0.8;
+}
+
+#new-note::before {
+    content: "+";
+    margin-right: 1rem;
+    margin-left: 0;
+}
+
+#delete-note::before {
+    content: "-";
+    margin-right: 1rem;
+    margin-left: 0;
+}
+
+.note {
+    background-color: yellow;
+    width: 20%; 
+    height: 31.5%;
+    margin: 0.3% 0;
+    border-radius: 10px;
+    vertical-align: top;
+}
+
+.text-note {
+    width: 99%;
+    height: 80%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+
+.done-note {
+   background-color: transparent;
+   color: darkgoldenrod;
+   font-weight: bold;   
+   font-size: 16px;
+   margin-left: 75%;
+   border: none;
+   padding: 0.25rem;
+}
+
+.done-note:hover {
+    background-color: rgba(0, 0, 0, 0.125);
+    color: goldenrod;
+}
+
+.done-note:active {
+    color: gold;
+}

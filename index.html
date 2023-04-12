@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./resources/sticky-notes.png" type="image/x-icon">
+    <script src="./index.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Notes</title>
+</head>
+<body>
+    <div class="title">
+        <h1 id="title-notes">Notes!</h1>
+        <div class="features">
+            <button id="new-note" class="feature-element">New Note</button>
+            <button id="delete-note" class="feature-element">Delete Note</button>
+        </div>
+    </div>
+    <div id="notes-container"> 
+        <div class="note" id="note-1">
+            <textarea name="paragraph_text" cols="50" rows="10" class="text-note" placeholder="Enter text..."></textarea>
+            <input type="submit" value="Done" class="done-note" id="done-1">
+        </div>
+        <div class="note" id="note-2">
+            <textarea name="paragraph_text" cols="50" rows="10" class="text-note" placeholder="Enter text..."></textarea>
+            <input type="submit" value="Done" class="done-note" id="done-2">
+        </div>
+        <div class="note" id="note-3">
+            <textarea name="paragraph_text" cols="50" rows="10" class="text-note" placeholder="Enter text..."></textarea>
+            <input type="submit" value="Done" class="done-note" id="done-3">
+        </div>
+        <div class="note" id="note-4">
+            <textarea name="paragraph_text" cols="50" rows="10" class="text-note" placeholder="Enter text..."></textarea>
+            <input type="submit" value="Done" class="done-note" id="done-4">
+        </div>
+    </div>
+
+<script src="./done-button.js"></script>
+</body>
+</html>
