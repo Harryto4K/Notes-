@@ -1,18 +1,44 @@
-let doneButton1 = document.getElementsByClassName('done-note')[0]; 
-let doneButton2 = document.getElementById('note-2'); 
-let doneButton3 = document.getElementById('note-3'); 
-let doneButton4 = document.getElementById('note-4'); 
-let doneButton5 = document.getElementById('note-5'); 
-let doneButton6 = document.getElementById('note-6'); 
-let doneButton7 = document.getElementById('note-7'); 
-let doneButton8 = document.getElementById('note-8'); 
-let doneButton9 = document.getElementById('note-9'); 
-let doneButton10 = document.getElementById('note-10'); 
-let doneButton11 = document.getElementById('note-11'); 
-let doneButton112 = document.getElementById('note-12'); 
+let doneButtons = document.getElementsByClassName('done-note');
+let textNotes = document.getElementsByClassName('text-note');
 
-doneButton1.onclick = function() {
-    let textNote1 = document.getElementsByClassName('text-note')[0]; 
-    textNote1.readOnly = true;  
-    textNote1.style.cursor = 'default';
+let doneButton1 = document.getElementsByClassName('done-note')[0];  
+
+let note = document.getElementsByClassName('note'); 
+let note1 = document.getElementById('note-1'); 
+
+doneButtons.hidden = true;
+
+for (let x=0; x<note.length; x++) {
+note[x].onmouseleave = function() {
+    let done= this.querySelector('.done-note'); 
+    let input = this.parentNode.querySelector('text-note'); 
+    if (done.value !== 'Done') {
+    done.hidden = true;
+    }
+}
+}
+
+for (let y=0; y<note.length; y++) {
+    note[y].onmouseover = function() {
+        let done=this.querySelector('.done-note');
+        done.hidden = false;
+    }
+}
+
+let toggleButtonText = function() {
+    let textNote = this.parentNode.querySelector('.text-note'); // Get the sibling .text-note input field
+    if (this.value === 'Done') {
+        this.value = 'Edit';
+        textNote.readOnly = true;
+        textNote.style.cursor = 'default';
+    } else if (this.value === 'Edit') {
+        this.value = 'Done';
+        textNote.readOnly = false;
+        textNote.style.cursor = 'text';
+    }
+};
+
+// Loop through all elements in doneButtons array and add event listener to each
+for (let i = 0; i < doneButtons.length; i++) {
+    doneButtons[i].addEventListener('click', toggleButtonText);
 }
