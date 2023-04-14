@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./resources/sticky-notes.png" type="image/x-icon">
-    <script src="./index.js" defer></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Notes</title>
 </head>
@@ -22,7 +21,7 @@
     </div>
     <div id="notes-container"> 
         <div class="note" id="note-1">
-            <textarea name="paragraph_text" cols="50" rows="10" class="text-note" placeholder="Enter text..." id="text-note-1"></textarea>
+            <textarea name="paragraph_text" cols="50" rows="10" class="text-note" placeholder="Enter text..."></textarea>
             <input type="submit" value="Done" class="done-note" id="done-1">
         </div>
         <div class="note" id="note-2">
@@ -38,7 +37,9 @@
             <input type="submit" value="Done" class="done-note" id="done-4">
         </div>
     </div>
-
+    <button id="align-button">Vertical</button>
+    
+<script src="./index.js"></script>
 <script src="./done-button.js"></script>
 </body>
 </html>
