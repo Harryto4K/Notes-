@@ -29,8 +29,9 @@ body {
 
 .features {
     margin: 0.5rem 0;
-    display: flex;
-    width: 50%;
+    display: inline-flex;
+    width: 100%;
+
 }
 
 .feature-element {
@@ -116,10 +117,10 @@ body {
     color: white;
     font-weight: bold;
     border-radius: 5px;
-    border: none;
-    float: right;
-    margin-right: 2rem;
-    margin-top: 1rem;
+    border: none;   
+    position: absolute;
+    left: 90%;
+
 }
 
 #align-button:hover {
@@ -128,4 +129,8 @@ body {
 
 #align-button:active {
     background-color: goldenrod;
+}
+
+footer {
+    display: flex;
 }
