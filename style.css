@@ -95,7 +95,9 @@ body {
    color: darkgoldenrod;
    font-weight: bold;   
    font-size: 16px;
-   margin-left: 75%;
+   position: relative;
+   float: right;
+   right: 1%;
    border: none;
    padding: 0.25rem;
 }
@@ -133,4 +135,14 @@ body {
 
 footer {
     display: flex;
+}
+
+.del-note {
+    background-color: transparent;
+    border: none;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    position: relative;
+    bottom: 85%;
+    left: 94%;
 }

@@ -7,10 +7,11 @@ let x = 5;
 newNote.onclick = function() {
     let divNote = document.createElement('div');
     divNote.className= 'note';
-    divNote.innerHTML = `<textarea name="paragraph_text" cols="50" rows="10" class="text-note" placeholder="Enter text..."></textarea> <input type="submit" value="Done" class="done-note">`;
+    divNote.innerHTML = `<textarea name="paragraph_text" cols="50" rows="10" class="text-note" placeholder="Enter text..."></textarea><input type="submit" value="X" class="del-note"> <input type="submit" value="Done" class="done-note">`;
     divNote.id = `note-${x}`; 
     document.getElementById('notes-container').appendChild(divNote); 
     console.log('newNote');
+    console.log(note)
     x++; 
 }
 
@@ -47,6 +48,72 @@ let alignButtonFunc = function() {
 }
 
 alignButton.onclick = alignButtonFunc; 
+
+let doneButtons = document.getElementsByClassName('done-note');
+let textNotes = document.getElementsByClassName('text-note');
+
+let doneButton1 = document.getElementsByClassName('done-note')[0];  
+
+let note = document.getElementsByClassName('note'); 
+let closeButton = document.getElementsByClassName('del-note'); 
+
+let hola = 1;
+
+
+for (let x=0; x<note.length; x++) {
+    closeButton[x].hidden = true;   
+}
+
+for (let x=0; x<note.length; x++) {
+    doneButtons[x].hidden = true;
+}
+ 
+for (let x=0; x<note.length; x++) {
+note[x].onmouseleave = function() {
+    let done= this.querySelector('.done-note'); 
+    done.hidden = true;
+    closeButton[x].hidden = true;
+}
+}
+
+for (let y=0; y<note.length; y++) {
+    note[y].onmouseover = function() {
+        let done=this.querySelector('.done-note');
+        done.hidden = false;
+        closeButton[y].hidden = false;
+
+    }
+}
+
+let toggleButtonText = function() {
+    let textNote = this.parentNode.querySelector('.text-note'); // Get the sibling .text-note input field
+    if (this.value === 'Done') {
+        this.value = 'Edit';
+        textNote.readOnly = true;
+        textNote.style.cursor = 'default';
+    } else if (this.value === 'Edit') {
+        this.value = 'Done';
+        textNote.readOnly = false;
+        textNote.style.cursor = 'text';
+    }
+};
+
+// Loop through all elements in doneButtons array and add event listener to each
+for (let i = 0; i < doneButtons.length; i++) {
+    doneButtons[i].addEventListener('click', toggleButtonText);
+}
+
+let delNoteFunc = function() {
+    let note = this.parentNode;
+    note.remove();
+}
+
+for (let i=0; i<note.length; i++) {
+    closeButton[i].onclick = function() {
+        console.log(note[i]);
+        note[i].style.display = 'none';
+    }
+}
 
 
 
