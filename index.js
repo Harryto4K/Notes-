@@ -2,24 +2,31 @@ let newNote = document.getElementById('new-note');
 
 let delNote = document.getElementById('delete-note');
 
-let x = 5;
+let note = document.getElementsByClassName('note'); 
 
-newNote.onclick = function() {
-    let divNote = document.createElement('div');
-    divNote.className= 'note';
-    divNote.innerHTML = `<textarea name="paragraph_text" cols="50" rows="10" class="text-note" placeholder="Enter text..."></textarea><input type="submit" value="X" class="del-note"> <input type="submit" value="Done" class="done-note">`;
-    divNote.id = `note-${x}`; 
-    document.getElementById('notes-container').appendChild(divNote); 
-    console.log('newNote');
-    console.log(note)
-    x++; 
+let noteNumber = 0;
+
+newNote.onclick = function() { 
+    console.log(noteNumber);
+    if (noteNumber >= 12) {
+        alert('Max Notes Reached!');
+        noteNumber--;
+    }
+    noteNumber++;
+    if (noteNumber <= 12) {
+    for (let x=0; x<noteNumber; x++) {
+        if (note[x].style.display = 'none') {
+            note[x].style.display = 'block';
+        }
+    }
+    }
 }
+
 
 delNote.onclick = function() {
     let noteArray = document.getElementsByClassName('note');
     let lastNote = noteArray[noteArray.length - 1]; 
-    lastNote.remove();
-    console.log('delnote');
+    lastNote.style.display = 'none';
 }
 
 let alignButton = document.getElementById('align-button'); 
@@ -54,7 +61,6 @@ let textNotes = document.getElementsByClassName('text-note');
 
 let doneButton1 = document.getElementsByClassName('done-note')[0];  
 
-let note = document.getElementsByClassName('note'); 
 let closeButton = document.getElementsByClassName('del-note'); 
 
 let hola = 1;
@@ -103,18 +109,13 @@ for (let i = 0; i < doneButtons.length; i++) {
     doneButtons[i].addEventListener('click', toggleButtonText);
 }
 
-let delNoteFunc = function() {
-    let note = this.parentNode;
-    note.remove();
-}
 
 for (let i=0; i<note.length; i++) {
     closeButton[i].onclick = function() {
         console.log(note[i]);
         note[i].style.display = 'none';
+        noteNumber--;
     }
 }
-
-
 
 
