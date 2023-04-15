@@ -61,6 +61,10 @@ body {
     margin-left: 0;
 }
 
+#delete-note {
+    display: none;
+}
+
 #delete-note::before {
     content: "-";
     margin-right: 1rem;
