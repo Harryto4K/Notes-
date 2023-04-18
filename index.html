@@ -17,6 +17,8 @@
         <div class="features">
             <button id="new-note" class="feature-element">New Note</button>
             <button id="delete-note" class="feature-element">Delete Note</button>
+            <input id="font-family" type="text" list="font-families" class="feature-element" placeholder="Enter text...">
+            <button id="bold" class="feature-element">B</button>
             <button id="align-button">Vertical</button>
         </div>
     </div>
@@ -84,7 +86,12 @@
     </div>
     <footer>
     </footer>
-    
+    <datalist id="font-families">
+        <option value="Times New Roman"></option>
+        <option value="Cambria"></option>
+        <option value="Arial"></option>
+        <option value="Impact"></option>
+    </datalist>
 <script src="./index.js"></script>
 </body>
 </html>

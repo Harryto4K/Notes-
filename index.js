@@ -1,13 +1,10 @@
 let newNote = document.getElementById('new-note'); 
-
 let delNote = document.getElementById('delete-note');
-
 let note = document.getElementsByClassName('note'); 
-
+let boldButton = document.getElementById('bold');
 let noteNumber = 0;
 
 newNote.onclick = function() { 
-    console.log(noteNumber);
     if (noteNumber >= 12) {
         alert('Max Notes Reached!');
         noteNumber--;
@@ -16,12 +13,11 @@ newNote.onclick = function() {
     if (noteNumber <= 12) {
     for (let x=0; x<noteNumber; x++) {
         if (note[x].style.display = 'none') {
-            note[x].style.display = 'block';
+            note[x].style.display = 'flex';
         }
     }
     }
 }
-
 
 delNote.onclick = function() {
     let noteArray = document.getElementsByClassName('note');
@@ -58,13 +54,7 @@ alignButton.onclick = alignButtonFunc;
 
 let doneButtons = document.getElementsByClassName('done-note');
 let textNotes = document.getElementsByClassName('text-note');
-
-let doneButton1 = document.getElementsByClassName('done-note')[0];  
-
 let closeButton = document.getElementsByClassName('del-note'); 
-
-let hola = 1;
-
 
 for (let x=0; x<note.length; x++) {
     closeButton[x].hidden = true;   
@@ -85,14 +75,43 @@ note[x].onmouseleave = function() {
 for (let y=0; y<note.length; y++) {
     note[y].onmouseover = function() {
         let done=this.querySelector('.done-note');
+        if (done.value !== 'Edit') {
         done.hidden = false;
+        } else if (done.innerHTML === 'Edit') {
+            done.hidden = true;
+        }
         closeButton[y].hidden = false;
+    }
+}
 
+for (let x=0; x<note.length; x++) {
+    note[x].onclick = function() {
+        let done=this.querySelector('.done-note');
+        if (done.value === 'Edit') {
+            done.hidden = false;
+        }
+        let FF = document.getElementById('font-family');
+        let textnote = this.querySelector('.text-note'); 
+        if (FF.value === 'Times New Roman') {
+            textnote.style.fontFamily = 'Times New Roman';
+        } else if (FF.value === 'Cambria') {
+            textnote.style.fontFamily = 'Cambria';   
+        } else if (FF.value === 'Arial') {
+            textnote.style.fontFamily = 'Arial';
+        } else if (FF.value === 'Impact') {
+            textnote.style.fontFamily = 'Impact';
+        }
+
+        if (boldButton.id === 'bold') {
+            textnote.style.fontWeight = 400; 
+        } else if (boldButton.id === 'bold-a') {
+            textnote.style.fontWeight = 'bold';
+        }
     }
 }
 
 let toggleButtonText = function() {
-    let textNote = this.parentNode.querySelector('.text-note'); // Get the sibling .text-note input field
+    let textNote = this.parentNode.querySelector('.text-note'); 
     if (this.value === 'Done') {
         this.value = 'Edit';
         textNote.readOnly = true;
@@ -104,11 +123,9 @@ let toggleButtonText = function() {
     }
 };
 
-// Loop through all elements in doneButtons array and add event listener to each
 for (let i = 0; i < doneButtons.length; i++) {
     doneButtons[i].addEventListener('click', toggleButtonText);
 }
-
 
 for (let i=0; i<note.length; i++) {
     closeButton[i].onclick = function() {
@@ -118,4 +135,15 @@ for (let i=0; i<note.length; i++) {
     }
 }
 
+boldButton.onclick = function() {
+    if (boldButton.id === 'bold') {
+    boldButton.style.color = 'darkgoldenrod';
+    boldButton.style.backgroundColor = 'white';
+    boldButton.id = 'bold-a';
+    } else if (boldButton.id === 'bold-a') {
+    boldButton.style.backgroundColor = 'darkgoldenrod';
+    boldButton.style.color = 'white';
+    boldButton.id = 'bold';
+    }
+}
 
