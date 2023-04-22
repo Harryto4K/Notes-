@@ -102,9 +102,9 @@ body {
     border: none;
     outline: none;
     resize: none;
-    font-family:'Times New Roman', Times, serif;
-    font-size: 24px;    
+    font-family:'Times New Roman', Times, serif;   
     text-align: center;
+    font-size: 24px;    
 }
 
 
@@ -145,7 +145,7 @@ body {
     border-radius: 5px;
     border: none;   
     position: absolute;
-    left: 90%;
+    right: 2%;
 
 }
 
@@ -176,8 +176,24 @@ footer {
     position: absolute;
     top: 0;
     right: 0;
+    opacity: 0.4;
 }
 
 .del-note:hover {
     background-color: red;
+    opacity: 1; 
+}
+
+
+#font-size {
+    padding: 0 .25rem 0 1rem;
+    width: 2rem;
+    margin: 0 2rem 0 -1.5rem;  
+    height: 2rem;
+    overflow: scroll; 
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
 }

@@ -15,12 +15,13 @@
     <div class="title">
         <h1 id="title-notes">Notes!</h1>
         <div class="features">
-            <button id="new-note" class="feature-element">New Note</button>
-            <button id="delete-note" class="feature-element">Delete Note</button>
+            <button id="new-note" class="feature-element" type="button">New Note</button>
+            <button id="delete-note" class="feature-element" type="button">Delete Note</button>
             <input id="font-family" type="text" list="font-families" class="feature-element" placeholder="Enter text...">
-            <button id="bold" class="feature-element">B</button>
-            <button id="align-button">Vertical</button>
-        </div>
+            <input id="font-size" type='number' class="feature-element" placeholder="0" min="9" max="100" list="font-sizes"> 
+            <button id="bold" class="feature-element" type="button">B</button>
+            <button id="align-button" type="button">Vertical</button>
+        </div>  
     </div>
     <div id="notes-container"> 
         <div class="note" id="note-1">
@@ -92,6 +93,23 @@
         <option value="Arial"></option>
         <option value="Impact"></option>
     </datalist>
+    <datalist id="font-sizes">
+        <option value=12></option>
+        <option value=16></option>
+        <option value=24></option>
+        <option value=32></option>
+        <option value=48></option>
+        <option value=64></option>
+        <option value=72></option>
+    </datalist>
 <script src="./index.js"></script>
 </body>
 </html>
+
+<!--Ideas for features: 
+        Notes Color Button
+        Font-size for notes (Done)
+        Random Color Notes when adding a new note (maybe)
+        Fix Issue with the position of the notes 
+        Fix JavaScript issue when deleting and adding new notes
+-->

@@ -4,7 +4,29 @@ let note = document.getElementsByClassName('note');
 let boldButton = document.getElementById('bold');
 let noteNumber = 0;
 
-newNote.onclick = function() { 
+// This two functions have some bugs each one. 
+function noteAdd() {
+    if (noteNumber >= 12) {
+        alert('Max Notes Reached!');
+        noteNumber--;
+    }
+    if (noteNumber <= 12) {
+    for (let x=noteNumber; x === noteNumber; x++) { 
+        let thisNote; 
+        if (note[x].style.display = 'none') {
+            thisNote = note[x]; 
+            thisNote.style.display = 'flex';
+        }
+    }
+    }
+    if (note[noteNumber].style.display = 'flex') {
+    noteNumber++;
+    }
+    console.log(noteNumber);
+}
+
+function noteAdd2() {
+    console.log(noteNumber);
     if (noteNumber >= 12) {
         alert('Max Notes Reached!');
         noteNumber--;
@@ -13,11 +35,13 @@ newNote.onclick = function() {
     if (noteNumber <= 12) {
     for (let x=0; x<noteNumber; x++) {
         if (note[x].style.display = 'none') {
-            note[x].style.display = 'flex';
+            note[x].style.display = 'block';
         }
     }
-    }
+    }    
 }
+
+newNote.onclick = noteAdd2;
 
 delNote.onclick = function() {
     let noteArray = document.getElementsByClassName('note');
@@ -91,7 +115,16 @@ for (let x=0; x<note.length; x++) {
             done.hidden = false;
         }
         let FF = document.getElementById('font-family');
-        let textnote = this.querySelector('.text-note'); 
+        let textnote = this.querySelector('.text-note');
+        let FS = document.getElementById('font-size');
+        if (FS.value === '' || FS.value === 0) {
+            FS.value = 24;
+            console.log(FS);
+            textnote.style.fontSize = `${FS.value}px`; 
+        } else if (FS.value >= 1) {
+            textnote.style.fontSize = `${FS.value}px`; 
+        }
+
         if (FF.value === 'Times New Roman') {
             textnote.style.fontFamily = 'Times New Roman';
         } else if (FF.value === 'Cambria') {
@@ -127,12 +160,16 @@ for (let i = 0; i < doneButtons.length; i++) {
     doneButtons[i].addEventListener('click', toggleButtonText);
 }
 
+
+function deleteNote() {
+    let noteX = this.parentNode; 
+    noteX.style.display = 'none';
+    noteNumber--;
+    console.log(noteNumber);
+}
+
 for (let i=0; i<note.length; i++) {
-    closeButton[i].onclick = function() {
-        console.log(note[i]);
-        note[i].style.display = 'none';
-        noteNumber--;
-    }
+    closeButton[i].addEventListener('click', deleteNote);
 }
 
 boldButton.onclick = function() {
@@ -146,4 +183,6 @@ boldButton.onclick = function() {
     boldButton.id = 'bold';
     }
 }
+
+
 
