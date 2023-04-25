@@ -3,8 +3,10 @@ let delNote = document.getElementById('delete-note');
 let note = document.getElementsByClassName('note'); 
 let boldButton = document.getElementById('bold');
 let noteNumber = 0;
+let colorPicker = document.getElementsByClassName('color-picker');
 
 // This two functions have some bugs each one. 
+// For new NoteAdd method, first create a function that collects all notes with display: none and pushes it to an array. Then sort the array and set display:none to the last element. 
 function noteAdd() {
     if (noteNumber >= 12) {
         alert('Max Notes Reached!');
@@ -81,7 +83,8 @@ let textNotes = document.getElementsByClassName('text-note');
 let closeButton = document.getElementsByClassName('del-note'); 
 
 for (let x=0; x<note.length; x++) {
-    closeButton[x].hidden = true;   
+    closeButton[x].hidden = true;  
+    colorPicker[x].hidden = true;    
 }
 
 for (let x=0; x<note.length; x++) {
@@ -93,6 +96,12 @@ note[x].onmouseleave = function() {
     let done= this.querySelector('.done-note'); 
     done.hidden = true;
     closeButton[x].hidden = true;
+    let thisColorPicker = this.querySelector('.color-picker');
+    thisColorPicker.hidden = true;
+    let thisColorSelector = this.querySelector('.color-selector');
+    thisColorSelector.style.display = 'none';
+    thisColorSelector.id = 'not-active';
+
 }
 }
 
@@ -105,6 +114,8 @@ for (let y=0; y<note.length; y++) {
             done.hidden = true;
         }
         closeButton[y].hidden = false;
+        let thisColorPicker = this.querySelector('.color-picker');
+        thisColorPicker.hidden = false;
     }
 }
 
@@ -185,4 +196,47 @@ boldButton.onclick = function() {
 }
 
 
+function colorSelectorFunc() {
+    let thisColorSelector = this.parentNode.querySelector('.color-selector');
+    if (thisColorSelector.id === 'not-active') {
+        thisColorSelector.style.display = 'flex';
+        thisColorSelector.id = 'active';
+    } else if (thisColorSelector.id === 'active') {
+        thisColorSelector.style.display= 'none';
+        thisColorSelector.id = 'not-active';
+    }
 
+}
+
+for (let x=0; x<note.length; x++) {
+    colorPicker[x].onclick = colorSelectorFunc;
+}
+
+let colorOne = document.getElementsByClassName('color-one');
+let colorTwo = document.getElementsByClassName('color-two');
+let colorThree = document.getElementsByClassName('color-three'); 
+
+for (let x=0; x<note.length; x++) {
+    colorOne[x].onclick = function() { 
+        let ogBackgroundColor = window.getComputedStyle(note[x]).backgroundColor; 
+        let newColor = window.getComputedStyle(colorOne[x]).backgroundColor; 
+        colorOne[x].style.backgroundColor = ogBackgroundColor;
+        note[x].style.backgroundColor = newColor;
+        colorOne[x].style.border = `1px solid ${ogBackgroundColor}`; 
+    }
+    colorTwo[x].onclick = function() {
+        let ogBackgroundColor = window.getComputedStyle(note[x]).backgroundColor; 
+        let newColor = window.getComputedStyle(colorTwo[x]).backgroundColor; 
+        colorTwo[x].style.backgroundColor = ogBackgroundColor;
+        note[x].style.backgroundColor = newColor;
+        colorTwo[x].style.border = `1px solid ${ogBackgroundColor}`; 
+
+    }
+    colorThree[x].onclick = function() {
+        let ogBackgroundColor = window.getComputedStyle(note[x]).backgroundColor; 
+        let newColor = window.getComputedStyle(colorThree[x]).backgroundColor; 
+        colorThree[x].style.backgroundColor = ogBackgroundColor;
+        note[x].style.backgroundColor = newColor;
+        colorThree[x].style.border = `1px solid ${ogBackgroundColor}`; 
+    }
+}

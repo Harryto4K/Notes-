@@ -1,3 +1,4 @@
+
 body {
     background-color: lightyellow;
 }
@@ -196,4 +197,85 @@ footer {
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
+}
+
+.color-picker {
+    height: 2rem;
+    width: 2rem;
+    animation-name: colorchange; 
+    animation-duration: 3s;
+    animation-iteration-count:infinite;
+    border-radius: 50%;
+    position: absolute;
+    left: 0.2rem;
+    bottom: 0.2rem;
+    cursor: pointer;
+}
+
+.color-picker:hover {
+    border: 1px solid gray !important; 
+}
+
+.color-picker:active {
+    animation-name: none; 
+    background-color: lightblue;
+}
+
+.color-selector {
+    width: 75%;
+    display: none;
+    position: absolute;
+    bottom: 0.2rem;
+    left: 2.2rem;
+    padding: 0 0 0 .125rem;
+}
+
+
+.color-one, .color-two, .color-three {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    margin: 0 .125rem;
+    transition: all 200ms;
+    cursor: pointer;
+}
+
+
+.color-one {
+    background-color: lightskyblue;
+    border: 1px solid lightskyblue;
+}
+
+.color-two {
+    background-color: lightpink;
+    border: 1px solid lightpink;
+}
+
+.color-three {
+    background-color:aquamarine;   
+    border: 1px solid aquamarine;
+}
+
+
+@keyframes colorchange{
+    0% {background-color: yellow; border: 1px solid yellow}
+    25% {background-color: lightskyblue; border: 1px solid lightskyblue}
+    50% {background-color: lightpink; border: 1px solid lightpink}
+    75% {background-color: aquamarine; border: 1px solid aquamarine}
+    100% {background-color: peru; border:  1px solid peru}
+}
+
+.color-one:hover { 
+    opacity: 0.9;
+    border: 1px solid gray !important;
+}
+
+.color-two:hover {
+    opacity: 0.9;
+    border: 1px solid gray !important;
+}
+
+.color-three:hover {
+    opacity: 0.9;
+    border: 1px solid gray !important;
 }
