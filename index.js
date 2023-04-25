@@ -4,9 +4,7 @@ let note = document.getElementsByClassName('note');
 let boldButton = document.getElementById('bold');
 let noteNumber = 0;
 let colorPicker = document.getElementsByClassName('color-picker');
-
-// This two functions have some bugs each one. 
-// For new NoteAdd method, first create a function that collects all notes with display: none and pushes it to an array. Then sort the array and set display:none to the last element. 
+ 
 function noteAdd() {
     if (noteNumber >= 12) {
         alert('Max Notes Reached!');
@@ -24,7 +22,7 @@ function noteAdd() {
     if (note[noteNumber].style.display = 'flex') {
     noteNumber++;
     }
-    console.log(noteNumber);
+    console.log(noteNumber); 
 }
 
 function noteAdd2() {
@@ -43,7 +41,21 @@ function noteAdd2() {
     }    
 }
 
-newNote.onclick = noteAdd2;
+function noteAdd3() {
+    let hiddenNotes = [];
+    for (let x=0;x<note.length;x++) {
+        if (window.getComputedStyle(note[x]).display === 'none') {
+            hiddenNotes.push(note[x]); 
+        } 
+    } 
+    if (hiddenNotes[0] === undefined) {
+        alert('Max Notes Reached!');
+    } else {
+        hiddenNotes[0].style.display = 'block'; 
+    } 
+}
+
+newNote.onclick = noteAdd3;
 
 delNote.onclick = function() {
     let noteArray = document.getElementsByClassName('note');
@@ -175,8 +187,6 @@ for (let i = 0; i < doneButtons.length; i++) {
 function deleteNote() {
     let noteX = this.parentNode; 
     noteX.style.display = 'none';
-    noteNumber--;
-    console.log(noteNumber);
 }
 
 for (let i=0; i<note.length; i++) {
