@@ -2,44 +2,8 @@ let newNote = document.getElementById('new-note');
 let delNote = document.getElementById('delete-note');
 let note = document.getElementsByClassName('note'); 
 let boldButton = document.getElementById('bold');
-let noteNumber = 0;
+let italicButton = document.getElementById('italic');
 let colorPicker = document.getElementsByClassName('color-picker');
- 
-function noteAdd() {
-    if (noteNumber >= 12) {
-        alert('Max Notes Reached!');
-        noteNumber--;
-    }
-    if (noteNumber <= 12) {
-    for (let x=noteNumber; x === noteNumber; x++) { 
-        let thisNote; 
-        if (note[x].style.display = 'none') {
-            thisNote = note[x]; 
-            thisNote.style.display = 'flex';
-        }
-    }
-    }
-    if (note[noteNumber].style.display = 'flex') {
-    noteNumber++;
-    }
-    console.log(noteNumber); 
-}
-
-function noteAdd2() {
-    console.log(noteNumber);
-    if (noteNumber >= 12) {
-        alert('Max Notes Reached!');
-        noteNumber--;
-    }
-    noteNumber++;
-    if (noteNumber <= 12) {
-    for (let x=0; x<noteNumber; x++) {
-        if (note[x].style.display = 'none') {
-            note[x].style.display = 'block';
-        }
-    }
-    }    
-}
 
 function noteAdd3() {
     let hiddenNotes = [];
@@ -163,6 +127,12 @@ for (let x=0; x<note.length; x++) {
         } else if (boldButton.id === 'bold-a') {
             textnote.style.fontWeight = 'bold';
         }
+
+        if (italicButton.id === 'italic') {
+            textnote.style.fontStyle = 'normal';
+        } else if (italicButton.id === 'italic-a') {
+            textnote.style.fontStyle = 'italic';
+        }
     }
 }
 
@@ -250,3 +220,15 @@ for (let x=0; x<note.length; x++) {
         colorThree[x].style.border = `1px solid ${ogBackgroundColor}`; 
     }
 }
+
+italicButton.onclick = function() {
+    if (italicButton.id === 'italic') {
+        italicButton.style.color = 'darkgoldenrod';
+        italicButton.style.backgroundColor = 'white';
+        italicButton.id = 'italic-a';
+        } else if (italicButton.id === 'italic-a') {
+        italicButton.style.backgroundColor = 'darkgoldenrod';
+        italicButton.style.color = 'white';
+        italicButton.id = 'italic';
+        }
+    }

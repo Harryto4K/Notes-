@@ -279,3 +279,11 @@ input[type=number]::-webkit-outer-spin-button {
     opacity: 0.9;
     border: 1px solid gray !important;
 }
+
+#italic, #italic-a {
+    padding: 0 1rem;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
