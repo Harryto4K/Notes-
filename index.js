@@ -4,6 +4,7 @@ let note = document.getElementsByClassName('note');
 let boldButton = document.getElementById('bold');
 let italicButton = document.getElementById('italic');
 let colorPicker = document.getElementsByClassName('color-picker');
+let notesRandomBC = ['yellow', 'lightskyblue', 'lightpink', 'aquamarine'];
 
 function noteAdd3() {
     let hiddenNotes = [];
@@ -95,13 +96,14 @@ for (let y=0; y<note.length; y++) {
     }
 }
 
+let FF = document.getElementById('font-family');    
+
 for (let x=0; x<note.length; x++) {
     note[x].onclick = function() {
         let done=this.querySelector('.done-note');
         if (done.value === 'Edit') {
             done.hidden = false;
         }
-        let FF = document.getElementById('font-family');
         let textnote = this.querySelector('.text-note');
         let FS = document.getElementById('font-size');
         if (FS.value === '' || FS.value === 0) {
@@ -232,3 +234,43 @@ italicButton.onclick = function() {
         italicButton.id = 'italic';
         }
     }
+
+let imagePicker = document.getElementsByClassName('image-picker');
+let imageSelector = document.getElementById('image-selector');
+let doneImageBackground = document.getElementById('done-image-background');
+let imagesBackground = document.getElementsByClassName('images-background');
+let notesContainer = document.getElementById('notes-container');
+
+for (let x=0;x<note.length; x++) {
+    imagePicker[x].onclick = function() {
+        imageSelector.style.display = 'flex';
+    }
+}
+
+let imageUrl;
+
+for (let x=0; x<imagesBackground.length; x++) {
+    imagesBackground[x].onclick = function() {
+        for (let x=0; x<imagesBackground.length; x++) {
+            if (imagesBackground[x].id === `image-${x+1}-a`) {
+                let activeImage = imagesBackground[x];
+                activeImage.id = `image-${x}`;
+                activeImage.style.border = 'none';
+            }
+        }
+        imagesBackground[x].id = `image-${x+1}-a`;
+        if (imagesBackground[x].id === `image-${x+1}-a`) {
+            imagesBackground[x].style.border = '3px solid red';
+            imageUrl = imagesBackground[x].src;
+        }
+    }
+}
+
+doneImageBackground.onclick = function() {
+    notesContainer.style.backgroundImage = `url(${imageUrl})`;
+    imageSelector.style.display = 'none';
+    console.log('Done!');
+}
+
+
+
