@@ -263,14 +263,22 @@ for (let x=0; x<imagesBackground.length; x++) {
             imagesBackground[x].style.border = '3px solid red';
             imageUrl = imagesBackground[x].src;
         }
+        if (imagesBackground[x].id === "default-image") {
+            imagesBackground[x].style.border = '3px solid red';
+            imageUrl = 0;
+        }
     }
 }
 
 doneImageBackground.onclick = function() {
     notesContainer.style.backgroundImage = `url(${imageUrl})`;
     imageSelector.style.display = 'none';
-    console.log('Done!');
 }
 
+let closeImageSelector = document.getElementById('close-image-selector');
+
+closeImageSelector.onclick = function() {
+    imageSelector.style.display = 'none'; 
+}
 
 
