@@ -159,6 +159,7 @@ for (let i = 0; i < doneButtons.length; i++) {
 function deleteNote() {
     let noteX = this.parentNode; 
     noteX.style.display = 'none';
+    noteX.style.backgroundColor = 'yellow';
 }
 
 for (let i=0; i<note.length; i++) {
