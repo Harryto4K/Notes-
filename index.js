@@ -160,6 +160,8 @@ function deleteNote() {
     let noteX = this.parentNode; 
     noteX.style.display = 'none';
     noteX.style.backgroundColor = 'yellow';
+    let thisTextArea = this.parentNode.getElementsByClassName("text-note")[0]; 
+    thisTextArea.value = '';
 }
 
 for (let i=0; i<note.length; i++) {
@@ -241,7 +243,6 @@ let imageSelector = document.getElementById('image-selector');
 let doneImageBackground = document.getElementById('done-image-background');
 let imagesBackground = document.getElementsByClassName('images-background');
 let notesContainer = document.getElementById('notes-container');
-let tempvar = 0;
 let selectedNote; 
 
 for (let x=0;x<note.length; x++) {
