@@ -266,13 +266,22 @@ for (let x=0; x<imagesBackground.length; x++) {
         }
         if (imagesBackground[x].id === "default-image") {
             imagesBackground[x].style.border = '3px solid red';
-            imageUrl = 0;
+            imageUrl = undefined;
         }
     }
 }
 
+let noteBackgroundRadio = document.getElementById("btn-note-background");
+let containerBackgroundRadio = document.getElementById("btn-container-background");
+
 doneImageBackground.onclick = function() {
+    if (containerBackgroundRadio.checked) {
     notesContainer.style.backgroundImage = `url(${imageUrl})`;
+    } else if (noteBackgroundRadio.checked) {
+        for (let x=0; x<note.length; x++) {
+            note[x].style.backgroundImage = `url(${imageUrl})`;
+        }
+    }
     imageSelector.style.display = 'none';
 }
 
@@ -281,5 +290,6 @@ let closeImageSelector = document.getElementById('close-image-selector');
 closeImageSelector.onclick = function() {
     imageSelector.style.display = 'none'; 
 }
+
 
 
