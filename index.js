@@ -241,10 +241,13 @@ let imageSelector = document.getElementById('image-selector');
 let doneImageBackground = document.getElementById('done-image-background');
 let imagesBackground = document.getElementsByClassName('images-background');
 let notesContainer = document.getElementById('notes-container');
+let tempvar = 0;
+let selectedNote; 
 
 for (let x=0;x<note.length; x++) {
     imagePicker[x].onclick = function() {
         imageSelector.style.display = 'flex';
+        selectedNote = x; 
     }
 }
 
@@ -263,8 +266,7 @@ for (let x=0; x<imagesBackground.length; x++) {
         if (imagesBackground[x].id === `image-${x+1}-a`) {
             imagesBackground[x].style.border = '3px solid red';
             imageUrl = imagesBackground[x].src;
-        }
-        if (imagesBackground[x].id === "default-image") {
+        } else if (imagesBackground[x].id === "default-image") {
             imagesBackground[x].style.border = '3px solid red';
             imageUrl = undefined;
         }
@@ -278,9 +280,9 @@ doneImageBackground.onclick = function() {
     if (containerBackgroundRadio.checked) {
     notesContainer.style.backgroundImage = `url(${imageUrl})`;
     } else if (noteBackgroundRadio.checked) {
-        for (let x=0; x<note.length; x++) {
-            note[x].style.backgroundImage = `url(${imageUrl})`;
-        }
+            note[selectedNote].style.backgroundImage = `url(${imageUrl})`;
+            console.log(window.getComputedStyle(note[selectedNote]).backgroundImage);
+            
     }
     imageSelector.style.display = 'none';
 }
