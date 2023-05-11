@@ -6,6 +6,10 @@ let italicButton = document.getElementById('italic');
 let colorPicker = document.getElementsByClassName('color-picker');
 let notesRandomBC = ['yellow', 'lightskyblue', 'lightpink', 'aquamarine'];
 
+let colorOne = document.getElementsByClassName('color-one');
+let colorTwo = document.getElementsByClassName('color-two');
+let colorThree = document.getElementsByClassName('color-three'); 
+
 function noteAdd3() {
     let hiddenNotes = [];
     for (let x=0;x<note.length;x++) {
@@ -160,8 +164,15 @@ function deleteNote() {
     let noteX = this.parentNode; 
     noteX.style.display = 'none';
     noteX.style.backgroundColor = 'yellow';
+    let colorONE = this.parentNode.getElementsByClassName("color-one")[0];  
+    let colorTWO = this.parentNode.getElementsByClassName("color-two")[0];
+    let colorTHREE = this.parentNode.getElementsByClassName("color-three")[0];
+    colorONE.style.backgroundColor = 'lightskyblue'; 
+    colorTWO.style.backgroundColor = 'lightpink';
+    colorTHREE.style.backgroundColor = 'aquamarine';
     let thisTextArea = this.parentNode.getElementsByClassName("text-note")[0]; 
     thisTextArea.value = '';
+
 }
 
 for (let i=0; i<note.length; i++) {
@@ -196,10 +207,6 @@ function colorSelectorFunc() {
 for (let x=0; x<note.length; x++) {
     colorPicker[x].onclick = colorSelectorFunc;
 }
-
-let colorOne = document.getElementsByClassName('color-one');
-let colorTwo = document.getElementsByClassName('color-two');
-let colorThree = document.getElementsByClassName('color-three'); 
 
 for (let x=0; x<note.length; x++) {
     colorOne[x].onclick = function() { 
