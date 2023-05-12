@@ -139,6 +139,8 @@ for (let x=0; x<note.length; x++) {
         } else if (italicButton.id === 'italic-a') {
             textnote.style.fontStyle = 'italic';
         }
+        let fontColor = document.getElementById("font-color").value; 
+        textnote.style.color = fontColor;
     }
 }
 

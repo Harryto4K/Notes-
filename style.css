@@ -53,6 +53,36 @@ body {
     cursor: pointer;
 }
 
+#font-color {
+    padding: 0;
+    margin: 0 1.3rem 0 -1.5rem;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 3rem;
+    display: flex;
+}
+
+#font-color:before {
+    content: "A";
+    position: relative;
+    bottom: 0rem;
+    left: 1.2rem;   
+    font-size: 16px;
+    
+}
+
+#font-color::-webkit-color-swatch {
+    border: none;
+    width: 1.5rem;
+    height: .33rem;
+    position: relative;
+    top: 1.2rem;
+    left: -.33rem;
+}
+
+
 #bold, #bold-a {
     margin: 0 -1.5rem;
     padding: 0 1rem;
@@ -310,9 +340,15 @@ input[type=number]::-webkit-outer-spin-button {
     background-size: 50%;
     background-repeat: no-repeat;
     background-position: 50%;
-    background-color: lightgray;    
+    background-color: lightgray; 
+    box-sizing: border-box;   
 }
 
+.image-picker:hover {
+    opacity: 0.9;
+    border: 1px solid gray !important;
+}
+ 
 #image-selector {
     display: none;
     align-items: center;
@@ -346,7 +382,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 2rem 2rem;  
     flex-grow: 0;
     box-sizing: border-box;
-    
+
 }
 
 .footer-container {
