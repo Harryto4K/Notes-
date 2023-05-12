@@ -164,6 +164,7 @@ function deleteNote() {
     let noteX = this.parentNode; 
     noteX.style.display = 'none';
     noteX.style.backgroundColor = 'yellow';
+    noteX.style.backgroundImage = null;
     let colorONE = this.parentNode.getElementsByClassName("color-one")[0];  
     let colorTWO = this.parentNode.getElementsByClassName("color-two")[0];
     let colorTHREE = this.parentNode.getElementsByClassName("color-three")[0];
@@ -268,15 +269,20 @@ for (let x=0; x<imagesBackground.length; x++) {
                 let activeImage = imagesBackground[x];
                 activeImage.id = `image-${x}`;
                 activeImage.style.border = 'none';
+            } else if (imagesBackground[x].id === "default-image") {
+                let activeImage = imagesBackground[x];
+                activeImage.style.border = 'none';
             }
         }
+        if (imagesBackground[x].id === "default-image") {
+            imagesBackground[x].style.border = '3px solid red';
+            imageUrl = null;
+        }
+
+        if (imagesBackground[x].id === `image-${x}`) {
         imagesBackground[x].id = `image-${x+1}-a`;
-        if (imagesBackground[x].id === `image-${x+1}-a`) {
-            imagesBackground[x].style.border = '3px solid red';
-            imageUrl = imagesBackground[x].src;
-        } else if (imagesBackground[x].id === "default-image") {
-            imagesBackground[x].style.border = '3px solid red';
-            imageUrl = undefined;
+        imagesBackground[x].style.border = '3px solid red';
+        imageUrl = `url(${imagesBackground[x].src})`;
         }
     }
 }
@@ -286,11 +292,9 @@ let containerBackgroundRadio = document.getElementById("btn-container-background
 
 doneImageBackground.onclick = function() {
     if (containerBackgroundRadio.checked) {
-    notesContainer.style.backgroundImage = `url(${imageUrl})`;
+    notesContainer.style.backgroundImage = imageUrl;
     } else if (noteBackgroundRadio.checked) {
-            note[selectedNote].style.backgroundImage = `url(${imageUrl})`;
-            console.log(window.getComputedStyle(note[selectedNote]).backgroundImage);
-            
+            note[selectedNote].style.backgroundImage = imageUrl;           
     }
     imageSelector.style.display = 'none';
 }
