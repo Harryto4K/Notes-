@@ -1,14 +1,14 @@
-let newNote = document.getElementById('new-note'); 
-let delNote = document.getElementById('delete-note');
-let note = document.getElementsByClassName('note'); 
-let boldButton = document.getElementById('bold');
-let italicButton = document.getElementById('italic');
-let colorPicker = document.getElementsByClassName('color-picker');
-let notesRandomBC = ['yellow', 'lightskyblue', 'lightpink', 'aquamarine'];
+const newNote = document.getElementById('new-note'); 
+const delNote = document.getElementById('delete-note');
+const note = document.getElementsByClassName('note'); 
+const boldButton = document.getElementById('bold');
+const italicButton = document.getElementById('italic');
+const colorPicker = document.getElementsByClassName('color-picker');
+const notesRandomBC = ['yellow', 'lightskyblue', 'lightpink', 'aquamarine'];
 
-let colorOne = document.getElementsByClassName('color-one');
-let colorTwo = document.getElementsByClassName('color-two');
-let colorThree = document.getElementsByClassName('color-three'); 
+const colorOne = document.getElementsByClassName('color-one');
+const colorTwo = document.getElementsByClassName('color-two');
+const colorThree = document.getElementsByClassName('color-three'); 
 
 function noteAdd3() {
     let hiddenNotes = [];
@@ -248,11 +248,11 @@ italicButton.onclick = function() {
         }
     }
 
-let imagePicker = document.getElementsByClassName('image-picker');
-let imageSelector = document.getElementById('image-selector');
-let doneImageBackground = document.getElementById('done-image-background');
-let imagesBackground = document.getElementsByClassName('images-background');
-let notesContainer = document.getElementById('notes-container');
+const imagePicker = document.getElementsByClassName('image-picker');
+const imageSelector = document.getElementById('image-selector');
+const doneImageBackground = document.getElementById('done-image-background');
+const imagesBackground = document.getElementsByClassName('images-background');
+const notesContainer = document.getElementById('notes-container');
 let selectedNote; 
 
 for (let x=0;x<note.length; x++) {

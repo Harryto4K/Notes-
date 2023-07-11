@@ -436,3 +436,49 @@ input[type=number]::-webkit-outer-spin-button {
 #btn-container-background {
     margin-left: 1rem;
 }
+
+#title-image-selector {
+    font-family: 'Roboto Mono';
+    font-size: 1.7rem;
+}
+
+@media only screen and (max-width: 720px) {
+    #notes-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        background-color: white; 
+        width: 100%;
+        height: 80vh;
+        transition: all 200ms; 
+        background-image: url();
+        background-size:cover;
+        background-position: 50%;
+    }
+    .note {
+        background-color: yellow;
+        width: 85%; 
+        height: 31.5%;
+        margin: 0.5% 0;
+        border-radius: 10px;
+        vertical-align: top;
+        flex-grow: 0;
+        display: none;
+        transition: all 200ms;
+        position: relative;
+        background-image: url();
+        background-size:cover;
+        background-position: 50%;
+    }
+    .features {
+        justify-content: center;
+    }
+
+    #font-family {
+        display: none;
+    }
+    #align-button {
+        display: none;
+    }
+}
