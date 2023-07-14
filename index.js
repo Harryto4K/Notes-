@@ -307,5 +307,19 @@ closeImageSelector.onclick = function() {
     imageSelector.style.display = 'none'; 
 }
 
+const media720 = window.matchMedia("(max-width: 720px)");
+
+function getMedia720(media720) {
+    if (media720.matches) {
+        newNote.innerHTML = ""; 
+    }
+}
+
+getMedia720(media720); 
+media720.addEventListener(getMedia720); 
+
+
+
+// Recordatorio: Fix Responsiveness 
 
 
